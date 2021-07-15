@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user.age %>
+</p>
+
+<div>
+  <h3>Tasks</h3>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+    <tr>
+    <% @user.tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.status %></td>
+      <tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

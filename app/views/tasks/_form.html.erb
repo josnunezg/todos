@@ -1,0 +1,26 @@
+<%= form_with(model: task, local: true) do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :user %>
+    <%= f.collection_select :user_id, User.order(:id), :id, :name, prompt: 'Seleccione' %>
+  </div>
+
+  <div>
+    <%= f.label :status %>
+    <%= f.select :status, tasks_statuses_options %>
+  </div>
+
+  <div>
+    <%= f.submit %> |
+    <%= link_to 'Back', tasks_path %>
+  </div>
+<% end %>
